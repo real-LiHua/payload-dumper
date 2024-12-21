@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        arch: [x64, x86, armv8, armv7]
 
     steps:
     - name: Checkout code
@@ -28,7 +27,7 @@ jobs:
         pip install .
         pip install pyinstaller
     - name: Modify file with sed
-      run: sed -i 's/from . import main/from payload_dumper import main/' src/payload_dumper/__main__.py
+      run: sed -i 's|from . import main|from payload_dumper import main|' src/payload_dumper/__main__.py
     - name: Build with PyInstaller
       run: pyinstaller --onefile --name payload_dumper-${{runner.os}}  src/payload_dumper/__main__.py
     - name: Upload Artifacts
