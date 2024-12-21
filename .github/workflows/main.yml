@@ -28,7 +28,7 @@ jobs:
         pip install pyinstaller
     - name: Modify file with sed
       run: |
-        if [[ "${{ runner.os }}" == "macos" ]]; then
+        if [[ "${{ runner.os }}" == "macOS" ]]; then
           sed -i '' 's|from . import main|from payload_dumper import main|' src/payload_dumper/__main__.py
         else
           sed -i 's|from . import main|from payload_dumper import main|' src/payload_dumper/__main__.py
