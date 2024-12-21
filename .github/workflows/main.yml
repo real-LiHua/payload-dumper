@@ -4,7 +4,7 @@ name: Build Executables
 on:
   push:
     branches:
-     • main
+     • master
 
 jobs:
   build:
