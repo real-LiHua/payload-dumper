@@ -4,7 +4,8 @@ name: Build Executables
 on:
   push:
     branches:
-     • master
+     - master
+  workflow_dispatch:
 
 jobs:
   build:
